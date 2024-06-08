@@ -23,7 +23,8 @@
 #include <V3d_Light.hxx>
 #include <V3d_ListOfLight.hxx>
 
-#include <Quantity_Parameter.hxx>
+//old occt lib
+//#include <Quantity_Parameter.hxx>
 
 #include <set>
 
@@ -812,9 +813,13 @@ static int RTLight (Draw_Interpretor& /*theDI*/, int theNbArgs, const char** the
 
         if (aFlag == "-color")
         {
-          Quantity_Parameter aColorR;
-          Quantity_Parameter aColorG;
-          Quantity_Parameter aColorB;
+            //old occt lib
+          //Quantity_Parameter aColorR;
+          //Quantity_Parameter aColorG;
+          //Quantity_Parameter aColorB;
+            Standard_Real aColorR;
+            Standard_Real aColorG;
+            Standard_Real aColorB;
 
           if (theNbArgs == ++anArgIdx || !TCollection_AsciiString (theArgs[anArgIdx]).IsRealValue ())
           {

@@ -23,6 +23,8 @@
 #include <Select3D_SensitiveBox.hxx>
 #include <Select3D_SensitivePrimitiveArray.hxx>
 
+#include <Graphic3d_AspectLine3d.hxx>
+
 // Use this macro to print debug info.
 #define PRINT_DEBUG_INFO
 
@@ -234,10 +236,11 @@ namespace mesh
         {
           aBsdfMaterial[aMatIdx].SetMaterialType (Graphic3d_MATERIAL_PHYSIC);
 
-          aBsdfMaterial[aMatIdx].SetAmbient  (1.0);
-          aBsdfMaterial[aMatIdx].SetDiffuse  (1.0);
-          aBsdfMaterial[aMatIdx].SetSpecular (1.0);
-          aBsdfMaterial[aMatIdx].SetEmissive (0.0);
+          //old occt lib
+          //aBsdfMaterial[aMatIdx].SetAmbient  (1.0);
+          //aBsdfMaterial[aMatIdx].SetDiffuse  (1.0);
+          //aBsdfMaterial[aMatIdx].SetSpecular (1.0);
+          //aBsdfMaterial[aMatIdx].SetEmissive (0.0);
 
           aBsdfMaterial[aMatIdx].SetAmbientColor  (Quantity_Color (0.1, 0.1, 0.1, Quantity_TOC_RGB));
           aBsdfMaterial[aMatIdx].SetDiffuseColor  (Quantity_Color (0.8, 0.8, 0.8, Quantity_TOC_RGB));

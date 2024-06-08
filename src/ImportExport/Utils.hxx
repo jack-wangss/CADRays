@@ -22,7 +22,7 @@ namespace model
   public:
 
     //! Returns 2D texture map applied.
-    const Handle (Graphic3d_Texture2Dmanual)& Texture ()
+    const Handle (Graphic3d_Texture2D)& Texture ()
     {
       return myTexture;
     }

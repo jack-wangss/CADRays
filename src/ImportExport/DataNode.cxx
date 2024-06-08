@@ -532,7 +532,7 @@ namespace model
         aSubShape->SetMaterial (aGraphicAspect->FrontMaterial ());
       }
 
-      const Handle (Geom_Transformation)& aLocalTransform = aShape->LocalTransformationGeom ();
+      const Handle (TopLoc_Datum3D)& aLocalTransform = aShape->LocalTransformationGeom ();
 
       if (!aLocalTransform.IsNull ())
       {

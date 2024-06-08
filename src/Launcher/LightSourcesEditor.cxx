@@ -50,7 +50,7 @@ static Handle(V3d_Light) cloneLight (Handle(V3d_Light) theSource, const Handle (
 
   if (theSource->Type() == V3d_DIRECTIONAL)
   {
-    V3d_DirectionalLight* aNewLight = new V3d_DirectionalLight (theView->Viewer());
+    V3d_DirectionalLight* aNewLight = new V3d_DirectionalLight ();
     Handle(V3d_DirectionalLight) aLightDirectional = Handle(V3d_DirectionalLight)::DownCast (theSource);
 
     aNewLight->SetIntensity (theSource->Intensity());
@@ -61,10 +61,11 @@ static Handle(V3d_Light) cloneLight (Handle(V3d_Light) theSource, const Handle (
     aNewLight->SetDirection (aLightDir[0], aLightDir[1], aLightDir[2]);
 
     aLightRes = aNewLight;
+
   }
   else if (theSource->Type() == V3d_POSITIONAL)
   {
-    V3d_PositionalLight* aNewLight = new V3d_PositionalLight (theView->Viewer(), 0.0, 0.0, 0.0);
+    V3d_PositionalLight* aNewLight = new V3d_PositionalLight (gp_Pnt());
     Handle(V3d_PositionalLight) aLightPositional = Handle(V3d_PositionalLight)::DownCast (theSource);
 
     aNewLight->SetIntensity (theSource->Intensity());
@@ -81,6 +82,7 @@ static Handle(V3d_Light) cloneLight (Handle(V3d_Light) theSource, const Handle (
   {
     aLightRes->SetColor (theSource->Color());
     aLightRes->SetHeadlight (theSource->Headlight());
+    theView->Viewer()->AddLight(aLightRes);
   }
 
   return aLightRes;
@@ -375,12 +377,12 @@ void LightSourcesEditor::Draw (const char* theTitle)
     {
       if (ImGui::Selectable ("Positional"))
       {
-        aLightNew = new V3d_PositionalLight (myMainGui->View()->Viewer(), 0.0, 0.0, 0.0);
+        aLightNew = new V3d_PositionalLight (gp_Pnt());
       }
 
       if (ImGui::Selectable ("Directional"))
       {
-        aLightNew = new V3d_DirectionalLight (myMainGui->View()->Viewer());
+        aLightNew = new V3d_DirectionalLight ();
       }
 
       if (ImGui::Selectable ("Environment map"))
@@ -401,6 +403,7 @@ void LightSourcesEditor::Draw (const char* theTitle)
     // Add new light if requested
     if (!aLightNew.IsNull())
     {
+      myMainGui->View()->Viewer()->AddLight(aLightNew);
       myMainGui->View()->Viewer()->SetLightOn (aLightNew);
       myMainGui->View()->Viewer()->UpdateLights();
     }
