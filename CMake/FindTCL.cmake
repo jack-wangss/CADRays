@@ -15,6 +15,9 @@
 
 include(FindPackageHandleStandardArgs)
 
+
+set (TCL_ROOT_DIR "D:/code/OCCT/CADRays/Library/OpenCASCADE-7.7.0-vc14-64/tcltk-86-64")
+
 # =============================================================================
 # Check for required variables
 # =============================================================================

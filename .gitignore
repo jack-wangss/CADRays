@@ -65,3 +65,5 @@ UpgradeLog*
 /codeblocks.*
 /custom.*
 /draw.*
+/Library
+/build-vc14-64

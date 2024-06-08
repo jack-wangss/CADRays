@@ -1,6 +1,9 @@
 include(FindPackageHandleStandardArgs)
 include(macros)
 
+
+set (FREEIMAGE_ROOT_DIR "D:/code/OCCT/CADRays/Library/OpenCASCADE-7.7.0-vc14-64/freeimage-3.17.0-vc14-64")
+
 # =============================================================================
 # Check for required variables
 # =============================================================================

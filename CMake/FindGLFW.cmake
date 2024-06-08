@@ -14,6 +14,8 @@
 
 include(FindPackageHandleStandardArgs)
 
+set (GLFW_ROOT_DIR "D:/code/OCCT/CADRays/Library/glfw-3.4.bin.WIN64")
+
 # =============================================================================
 # Check for required variables
 # =============================================================================
